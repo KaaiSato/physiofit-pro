@@ -11,6 +11,7 @@ class Trainer < ApplicationRecord
   has_many :chats
   has_many :messages, through: :chats
   has_one_attached :profile_image
+  belongs_to :sex
   belongs_to :prefecture
 
   with_options presence: true do
