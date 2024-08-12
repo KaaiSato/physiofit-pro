@@ -40,9 +40,9 @@ Things you may want to cover:
 | sex_id               | integer| null: false               |
 | prefecture_id        | integer| null: false               |
 | city                 | string | null: false               |
-| registration_number  | integer|                           |
-| career               | text   |                           |
-| profile              | text   |                           |
+| registration_number  | integer| null: false               |
+| career               | text   | null: false               |
+| profile              | text   | null: false               |
 | latitude             | float  |                           |
 | longitude            | float  |                           |
 | service_radius_km    | integer|                           |
@@ -65,7 +65,7 @@ Things you may want to cover:
 | sex_id               | integer| null: false               |
 | prefecture_id        | integer| null: false               |
 | city                 | string | null: false               |
-| profile              | text   |                           |
+| profile              | text   | null: false               |
 
 ### Association
 
@@ -73,40 +73,6 @@ Things you may want to cover:
 - has_many :reviews
 - has_many :chats
 - has_many :messages, through: :chats
-
-## reservations テーブル
-
-| Column               | Type       | Options                        |
-| -------------------- | ---------- | ------------------------------ |
-| last_name            | string     | null: false                    |
-| first_name           | string     | null: false                    |
-| last_name_reading    | string     | null: false                    |
-| first_name_reading   | string     | null: false                    |
-| date                 | date       | null: false                    |
-| time_id              | integer    | null: false                    |
-| request              | text       |                                |
-| trainer              | references | null: false, foreign_key: true |
-| user                 | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :trainer
-- belongs_to :user
-- has_one :address
-
-## reviews テーブル
-
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| rating   | integer    | null: false                    |
-| comment  | text       |                                |
-| trainer  | references | null: false, foreign_key: true |
-| user     | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :trainer
-- belongs_to :user
 
 ## chats テーブル
 
@@ -134,6 +100,27 @@ Things you may want to cover:
 
 - belongs_to :chat
 
+
+## reservations テーブル
+
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| last_name            | string     | null: false                    |
+| first_name           | string     | null: false                    |
+| last_name_reading    | string     | null: false                    |
+| first_name_reading   | string     | null: false                    |
+| date                 | date       | null: false                    |
+| time_id              | integer    | null: false                    |
+| request              | text       | null: false                    |
+| trainer              | references | null: false, foreign_key: true |
+| user                 | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :trainer
+- belongs_to :user
+- has_one :address
+
 ## addresses テーブル
 
 | Column          | Type       | Options                        |
@@ -147,3 +134,19 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :reservation
+
+## reviews テーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| rating   | integer    | null: false                    |
+| comment  | text       | null: false                    |
+| trainer  | references | null: false, foreign_key: true |
+| user     | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :trainer
+- belongs_to :user
+
+
