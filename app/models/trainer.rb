@@ -17,14 +17,17 @@ class Trainer < ApplicationRecord
   with_options presence: true do
     validates :nickname
     validates :email, uniqueness: true
-    validates :encrypted_password
-    validates :last_name
-    validates :first_name
-    validates :last_name_reading
-    validates :first_name_reading
-    validates :age, numericality: { only_integer: true }
+    validates :encrypted_password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,}+\z/i }
+    validates :last_name, format: { with: /\A[ぁ-んァ-ヶ一-龠々ー]+\z/ }
+    validates :first_name, format: { with: /\A[ぁ-んァ-ヶ一-龠々ー]+\z/ }
+    validates :last_name_reading, format: { with: /\A[ぁ-んー]+\z/ }
+    validates :first_name_reading, format: { with: /\A[ぁ-んー]+\z/ }
+    validates :age, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
     validates :gender_id
     validates :prefecture_id
     validates :city
+    validates :registration_number, format: { with: /\A\d{6}\z/ }
+    validates :career
+    validates :profile
   end
 end
