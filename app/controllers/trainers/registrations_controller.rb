@@ -19,6 +19,6 @@ class Trainers::RegistrationsController < ApplicationController
   end
 
   def trainer_params
-    params.require(:trainer).permit(:nickname, :email, :password, :password_confirmation, :last_name, :first_name, :last_name_reading, :first_name_reading, :age, :gender_id, :prefecture_id, :city, :registration_number, :career, :profile)
+    params.require(:trainer).permit(:profile_image, :nickname, :email, :password, :password_confirmation, :last_name, :first_name, :last_name_reading, :first_name_reading, :age, :gender_id, :prefecture_id, :city, :registration_number, :career, :profile)
   end
 end
