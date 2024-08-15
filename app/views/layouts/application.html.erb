@@ -11,6 +11,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header> 
+      <div class="logo">PhysioFit Pro</div> 
+      <nav> <a href="/login" class="signin-link">Sign in</a> </nav> 
+    </header>
+
+    <div class = "common-content">
+      <%= yield %>
+    </div>
+
+    <footer> 
+      <p>&copy; 2024 <a href="/">PhysioFit Pro</a>. All Rights Reserved.</p> 
+    </footer> 
   </body>
 </html>

@@ -1,0 +1,96 @@
+<%= form_with model: @trainer, url: trainers_path do |f| %>
+
+<h2>Create New Account</h2>
+
+<%= render "trainers/shared/error_messages", model: @trainer %>
+
+  <div class="field">
+    <%= f.label :profile_image, "Profile Image" %><br />
+    <%= f.file_field :profile_image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nickname, "Nickname" %><br />
+    <%= f.text_field :nickname, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, "E-mail" %><br />
+    <%= f.email_field :email, autocomplete: "email", autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "Password" %>
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" , placeholder:"8文字以上の半角英数字"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "Password (confirmation)" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" ,placeholder:"確認のため同じパスワードを入力してください"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name, "Last Name" %><br />
+    <%= f.text_field :last_name, placeholder:"ex）佐藤"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name, "First Name" %><br />
+    <%= f.text_field :first_name ,placeholder:"ex）太郎" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name_reading, "Last Name (Reading)" %><br />
+    <%= f.text_field :last_name_reading, placeholder:"ex）さとう" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name_reading, "First Name (Reading)" %><br />
+    <%= f.text_field :first_name_reading, placeholder:"ex）たろう"  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age, "Age" %><br />
+    <%= f.number_field :age, placeholder:"ex）25" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender, "Gender" %><br />    
+    <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select-box", id:"gender"}) %>
+  </div>
+
+  <div class="field">
+     <%= f.label :prefecture, "Prefecture" %><br />
+     <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city, "City" %><br />
+    <%= f.text_field :city, placeholder:"ex）港区" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :registration_number, "Registration Number" %><br />
+    <%= f.number_field :registration_number, placeholder:"免許登録番号 ６ケタ半角数字"  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :career, "Career" %><br />
+    <%= f.text_area :career, placeholder:"ex）所属 etc" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :profile, "Profile" %><br />
+   <%= f.text_area :profile, placeholder: "ex）自己紹介、得意分野、トレーニング可能時間 etc" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+
+
