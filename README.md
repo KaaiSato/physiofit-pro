@@ -37,7 +37,7 @@ Things you may want to cover:
 | last_name_reading    | string | null: false               |
 | first_name_reading   | string | null: false               |
 | age                  | integer| null: false               |
-| sex_id               | integer| null: false               |
+| gender_id               | integer| null: false               |
 | prefecture_id        | integer| null: false               |
 | city                 | string | null: false               |
 | registration_number  | integer| null: false               |
@@ -62,7 +62,7 @@ Things you may want to cover:
 | email                | string | null: false, unique: true |
 | encrypted_password   | string | null: false               |
 | age                  | integer| null: false               |
-| sex_id               | integer| null: false               |
+| gender_id               | integer| null: false               |
 | prefecture_id        | integer| null: false               |
 | city                 | string | null: false               |
 | profile              | text   | null: false               |

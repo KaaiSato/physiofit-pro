@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
       :last_name_reading,
       :first_name_reading,
       :age,
-      :sex_id,
+      :gender_id,
       :prefecture_id,
       :city,
       :registration_number,

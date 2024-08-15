@@ -1,4 +1,4 @@
-class Sex < ActiveHash::Base
+class Gender < ActiveHash::Base
 
   self.data = [
   

@@ -1,8 +1,8 @@
+<%= form_with model: @trainer, url: trainers_path do |f| %>
+
 <h2>Create New Account</h2>
 
-<%= form_with model: @trainer, url: trainer_registration_path, do |f| %>
-
-<%= render "trainers/shared/error_messages", model: @trainer %>
+<%# render "trainers/shared/error_messages", model: @trainer %>
 
   <div class="field">
     <%= f.label :nickname, "Nickname" %><br />
@@ -49,14 +49,16 @@
 
   <div class="field">
     <%= f.label :age, "Age" %><br />
-    <%= f.number_field :age placeholder:"ex）25" %>
-  </div>
-
-  <div class="field">    
-    <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select-box", id:"sex"}) %>
+    <%= f.number_field :age, placeholder:"ex）25" %>
   </div>
 
   <div class="field">
+    <%= f.label :gender, "Gender" %><br />    
+    <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select-box", id:"gender"}) %>
+  </div>
+
+  <div class="field">
+     <%= f.label :prefecture, "Prefecture" %><br />
      <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
   </div>
 
@@ -77,11 +79,13 @@
 
   <div class="field">
     <%= f.label :profile, "Profile" %><br />
-    <%= f.text_area :profile "ex）自己紹介、得意分野、トレーニング可能時間 etc"%>
+   <%= f.text_area :profile, placeholder: "ex）自己紹介、得意分野、トレーニング可能時間 etc" %>
   </div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+
+
 

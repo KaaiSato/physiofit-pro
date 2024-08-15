@@ -11,7 +11,7 @@ class Trainer < ApplicationRecord
   has_many :chats
   has_many :messages, through: :chats
   has_one_attached :profile_image
-  belongs_to :sex
+  belongs_to :gender
   belongs_to :prefecture
 
   with_options presence: true do
@@ -23,7 +23,7 @@ class Trainer < ApplicationRecord
     validates :last_name_reading
     validates :first_name_reading
     validates :age, numericality: { only_integer: true }
-    validates :sex_id
+    validates :gender_id
     validates :prefecture_id
     validates :city
   end
