@@ -75,3 +75,7 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'devise'
 gem 'active_hash'
+
+group :production do
+  gem 'pg'
+end
