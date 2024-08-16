@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
-  
+
   root 'pages#home'
 
   authenticated :trainer do
@@ -12,6 +11,17 @@ Rails.application.routes.draw do
     sessions: 'trainers/sessions',
     registrations: 'trainers/registrations'
   }
+
+  authenticated :user do
+    root to: 'users#index', as: :user_root
+    resources :users
+  end
+
+  devise_for :users, controllers:{
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
