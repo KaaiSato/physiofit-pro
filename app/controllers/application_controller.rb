@@ -1,6 +1,16 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_in_path_for(resource)
+    if resource.is_a?(Trainer)
+      trainer_root_path  # Trainerの場合はtrainer_root_pathにリダイレクト
+    elsif resource.is_a?(User)
+      user_root_path  # Userの場合はuser_root_pathにリダイレクト
+    else
+      super  # デフォルトのリダイレクト先
+    end
+  end
+
   protected
 
   def configure_permitted_parameters
