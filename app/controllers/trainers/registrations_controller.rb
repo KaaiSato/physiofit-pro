@@ -19,6 +19,11 @@ class Trainers::RegistrationsController < Devise::RegistrationsController
     trainer_root_path
   end
 
+  def after_sign_in_path_for(resource)
+    trainer_root_path
+  end
+
+
   private
 
   def trainer_params

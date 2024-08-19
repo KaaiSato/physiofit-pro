@@ -1,8 +1,8 @@
-<%= form_with model: @trainer, url: trainer_registration_path do |f| %>
+<%= form_with model: @user, url: user_registration_path do |f| %>
 
 <h2>Create New Account</h2>
 
-<%= render "trainers/shared/error_messages", model: @trainer %>
+<%= render "users/shared/error_messages", model: @user %>
 
   <div class="field">
     <%= f.label :profile_image, "Profile Image" %><br />
@@ -33,26 +33,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :last_name, "Last Name" %><br />
-    <%= f.text_field :last_name, placeholder:"ex）佐藤"%>
-  </div>
-
-  <div class="field">
-    <%= f.label :first_name, "First Name" %><br />
-    <%= f.text_field :first_name ,placeholder:"ex）太郎" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name_reading, "Last Name (Reading)" %><br />
-    <%= f.text_field :last_name_reading, placeholder:"ex）さとう" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :first_name_reading, "First Name (Reading)" %><br />
-    <%= f.text_field :first_name_reading, placeholder:"ex）たろう"  %>
-  </div>
-
-  <div class="field">
     <%= f.label :age, "Age" %><br />
     <%= f.number_field :age, placeholder:"ex）25" %>
   </div>
@@ -73,18 +53,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :registration_number, "Registration Number" %><br />
-    <%= f.number_field :registration_number, placeholder:"免許登録番号 ６ケタ半角数字"  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :career, "Career" %><br />
-    <%= f.text_area :career, placeholder:"ex）所属 etc" %>
-  </div>
-
-  <div class="field">
     <%= f.label :profile, "Profile" %><br />
-   <%= f.text_area :profile, placeholder: "ex）自己紹介、得意分野、トレーニング可能時間 etc" %>
+   <%= f.text_area :profile, placeholder: "ex）自己紹介、スポーツ経験 etc" %>
   </div>
 
   <div class="actions">
