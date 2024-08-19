@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_14_212655) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_19_210025) do
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -59,7 +59,21 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_14_212655) do
     t.integer "service_radius_km"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "remember_created_at"
     t.index ["email"], name: "index_trainers_on_email", unique: true
+  end
+
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "email", null: false
+    t.string "encrypted_password", null: false
+    t.integer "age", null: false
+    t.integer "gender_id", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.text "profile", null: false
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
