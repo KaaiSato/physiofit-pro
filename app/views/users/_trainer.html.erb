@@ -1,0 +1,9 @@
+<div class="trainer">
+ <%= link_to image_tag(trainer.profile_image.variant(resize: "300x300"), class: "profile-image"), trainer_path(trainer.id) %>
+ <div class="trainer__body">
+  <span class="trainer__name"><%= "#{trainer.last_name} #{trainer.first_name} / #{trainer.age}歳" %></span>
+  <p class="trainer__area">
+    <%= "#{trainer.prefecture.name} / #{trainer.city}" %>
+  </p>
+ </div>
+</div>

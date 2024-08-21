@@ -1,0 +1,14 @@
+.profile-image {
+  width: 100px;           /* 画像の幅 */
+  height: 100px;          /* 画像の高さ */
+  border-radius: 50%;     /* 丸型にするために半径を指定 */
+  object-fit: cover;      /* 画像が枠に収まるように調整 */
+}
+
+.trainer__name{
+  font-size: 20px;
+}
+
+.trainer__area{
+  font-size: 13px;
+}

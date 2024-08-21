@@ -1,2 +1,10 @@
-<h1>User トップページ<h1>
+<main class="main">
+  <h1>User トップページ<h1>
+  <div class="inner">
+      <div class="recommend"> <おすすめのトレーナー> </div> 
+    <div class="trainer__wrapper">
+      <%= render partial: "trainer" ,collection: @trainers %>
+    </div>
+  </div>
+</main>
   
