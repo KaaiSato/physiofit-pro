@@ -3,18 +3,19 @@
   <div class="user__wrapper">
    <h2 class="page-heading">トレーナー自己紹介</h2>
 
+  <div class="profile-image-wrapper">
+  <%= image_tag @trainer.profile_image.variant(resize: "300x300"),class: "profile-image" %>
+  </div>
+
 <table class="table">
  <tbody>
-  <tr>
-  <%= image_tag @trainer.profile_image.variant(resize: "300x300"),class: "profile-image" %>
-  </tr>
   <tr>
    <th class="table__col1">ニックネーム</th>
    <td class="table__col2"><%= @trainer.nickname %></td>
   </tr>
   <tr>
    <th class="table__col1">名前</th>
-   <td class="table__col2"><%= "#{@trainer.last_name} #{@trainer.first_name} (#{@trainer.last_name_reading} #{@trainer.first_name_reading})" %></td>
+   <td class="table__col2"><%= "#{@trainer.last_name} #{@trainer.first_name}&nbsp;&nbsp;&nbsp;&nbsp;(#{@trainer.last_name_reading} #{@trainer.first_name_reading})".html_safe%></td>
   </tr>
   <tr>
    <th class="table__col1">年齢/性別</th>
@@ -25,7 +26,7 @@
    <td class="table__col2"><%= "#{@trainer.prefecture.name} #{@trainer.city}" %></td>
   </tr>
   <tr> 
-   <th class="table__col1">理学療法士 免許登録番号</th>
+   <th class="table__col1">理学療法士 <br>免許登録番号</th>
    <td class="table__col2"><%= @trainer.registration_number %></td>
   </tr>
   <tr> 
