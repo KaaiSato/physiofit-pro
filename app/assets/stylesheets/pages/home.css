@@ -1,0 +1,40 @@
+/* アカウント選択セクション */
+.account-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #e0ecf8;
+  padding: 20px;
+}
+
+.option-group {
+  margin-bottom: 30px; /* 下の余白を追加 */
+}
+
+.option-group h2 {
+  font-size: 24px;
+  margin-bottom: 15px; /* テキストとリンクの間に余白を追加 */
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* リンク間のスペースを広げる */
+}
+
+.signup-link, .signin-link {
+  font-size: 18px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.box {
+  border: 1px solid #aaa; /* 枠線の色を薄くする */
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  background-color: #f0f8ff; /* 背景色を少し変える */
+}
