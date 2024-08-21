@@ -26,7 +26,7 @@
 }
 
 header {
-  height: 60px;
+  height: 80px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -54,8 +54,8 @@ nav a.signin-link {
 
 .common-content {
   background-color: #e0ecf8;
-  padding-top: 60px; /* ヘッダーの高さを考慮 */
-  min-height: calc(100vh - 120px); /* フッターを含めた高さを計算 */
+  padding-top: 80px; /* ヘッダーの高さを考慮 */
+  min-height: calc(100vh - 140px); /* フッターを含めた高さを計算 */
   overflow-y: auto; /* 縦スクロールバーを表示 */
   display: flex;
   justify-content: center; /* 中央に配置 */

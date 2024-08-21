@@ -1,0 +1,33 @@
+<div class="main">
+ <div class="inner">
+  <div class="user__wrapper">
+   <h2 class="page-heading">自己紹介</h2>
+
+  <div class="profile-image-wrapper">
+  <%= image_tag @user.profile_image.variant(resize: "300x300"),class: "profile-image" %>
+  </div>
+
+<table class="table">
+ <tbody>
+  <tr>
+   <th class="table__col1">ニックネーム</th>
+   <td class="table__col2"><%= @user.nickname %></td>
+  </tr>
+  <tr>
+   <th class="table__col1">年齢/性別</th>
+   <td class="table__col2"><%= "#{@user.age}歳 / #{@user.gender.name}" %></td>
+  </tr>
+  <tr> 
+   <th class="table__col1">居住エリア</th>
+   <td class="table__col2"><%= "#{@user.prefecture.name} #{@user.city}" %></td>
+  </tr>
+   <th class="table__col1">自己紹介</th>
+   <td class="table__col2"><%= @user.profile %></td>
+  </tr>
+ </tbody>
+</table>
+
+
+  </div>
+ </div>
+</div>
