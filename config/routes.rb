@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   authenticated :trainer do
     root to: 'trainers#index', as: :trainer_root
-    resources :trainers 
+    
   end
   
   devise_for :users, controllers: {
@@ -16,10 +16,12 @@ Rails.application.routes.draw do
  
   authenticated :user do
     root to: 'users#index', as: :user_root
-    resources :users
   end
 
+  resources :trainers 
 
+  resources :users
+  
   root 'pages#home'
 
 

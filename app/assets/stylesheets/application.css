@@ -40,9 +40,10 @@ header {
   z-index: 1000;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
+.php-icon {
+  width: 100%;
+  max-width: 350px; /* 最大幅を設定 */
+  height: auto;    /* 高さを自動調整 */
 }
 
 nav a.signin-link {
