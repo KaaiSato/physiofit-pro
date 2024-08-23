@@ -21,6 +21,12 @@ Rails.application.routes.draw do
   resources :trainers 
 
   resources :users
+
+  resources :chats, only: [:index, :new, :create] do
+    resources :messages, only: [:index,:new, :create]
+  end
+
+
   
   root 'pages#home'
 

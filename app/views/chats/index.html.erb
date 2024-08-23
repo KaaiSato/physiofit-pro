@@ -1,0 +1,11 @@
+<h1>Chats</h1>
+
+<% @chats.each do |chat| %>
+  <div class="chat-summary">
+    <% if trainer_signed_in? %>
+      <%= link_to chat.user.nickname, chat_messages_path(chat) %>
+    <% else %>
+      <%= link_to chat.trainer.nickname, chat_messages_path(chat) %>
+    <% end %>
+  </div>
+<% end %>
