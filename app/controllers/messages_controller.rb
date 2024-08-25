@@ -1,27 +1,15 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user_or_trainer!
-  before_action :set_chat
-
-  def index
-    @messages = @chat.messages.includes(:chat).order(:created_at)
-    @message = @chat.messages.new
-  end
-
+ 
   def create
-    @message = @chat.messages.new(message_params)
-    if trainer_signed_in?
-      @message.sender = current_trainer
-    else
-      @message.sender = current_user
-    end
+    @chat = Chat.find(params[:chat_id])
+    @message = @chat.messages.new(message_params.merge(sender: current_user_or_trainer))
 
     if @message.save
-      respond_to do |format|
-        format.html { redirect_to chat_messages_path(@chat) }
-        format.js
-      end
+      ActionCable.server.broadcast "chat_channel_#{@chat.id}", render_message(@message)
+      head :ok
     else
-      render :index
+      render status: :unprocessable_entity, json: { errors: @message.errors.full_messages }
     end
   end
 
@@ -35,11 +23,15 @@ class MessagesController < ApplicationController
    end
  end
 
-  def set_chat
-    @chat = Chat.find(params[:chat_id])
-  end
-
   def message_params
     params.require(:message).permit(:content)
+  end
+
+  def render_message(message)
+    MessagesController.render(partial: 'messages/message', locals: { message: message })
+  end
+
+  def current_user_or_trainer
+    current_user || current_trainer
   end
 end

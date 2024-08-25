@@ -4,5 +4,10 @@ import "controllers"
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+import "channels"
 
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
 
+import "channels/chat_channel"

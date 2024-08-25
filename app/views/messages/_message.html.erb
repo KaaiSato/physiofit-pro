@@ -1,0 +1,19 @@
+<div class="message-row <%= message.sender_type.downcase == 'trainer' ? 'trainer-message' : 'user-message' %>">
+  <div class="message-content">
+    <% if message.sender_type == 'Trainer' %>
+      <div class="profile-image">
+        <%= image_tag message.chat.trainer.profile_image, alt: 'Trainer', class: 'profile-img' %>
+      </div>
+      <div class="bubble">
+        <p><%= message.content %></p>
+      </div>
+    <% else %>
+      <div class="bubble">
+        <p><%= message.content %></p>
+      </div>
+      <div class="profile-image">
+        <%= image_tag message.chat.user.profile_image, alt: 'User', class: 'profile-img' %>
+      </div>
+    <% end %>
+  </div>
+</div>

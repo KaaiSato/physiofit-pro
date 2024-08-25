@@ -4,10 +4,12 @@ class ChatsController < ApplicationController
 
   def index
     if trainer_signed_in?
-      @chats = current_trainer.chats.includes(:user)
+      @chats = current_trainer.chats.includes(:user,:trainer)
     elsif user_signed_in?
-      @chats = current_user.chats.includes(:trainer)
+      @chats = current_user.chats.includes(:trainer,:user)
     end
+
+    Rails.logger.debug "Fetched chats: #{@chats.inspect}"
   end
 
   def show
