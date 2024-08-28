@@ -6,8 +6,7 @@ class MessagesController < ApplicationController
     @message = @chat.messages.new(message_params.merge(sender: current_user_or_trainer))
 
     if @message.save
-      ActionCable.server.broadcast "chat_channel_#{@chat.id}", render_message(@message)
-      head :ok
+      ActionCable.server.broadcast "message_channel", {message: render_message(@message)}
     else
       render status: :unprocessable_entity, json: { errors: @message.errors.full_messages }
     end
