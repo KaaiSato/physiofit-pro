@@ -1,7 +1,7 @@
-import consumer from "channels/consumer"
+import consumer from "./consumer"
 
 if(location.pathname.match(/\/chats\/\d/)){
-  
+
 consumer.subscriptions.create("MessageChannel", {
   connected() {
     // Called when the subscription is ready for use on the server

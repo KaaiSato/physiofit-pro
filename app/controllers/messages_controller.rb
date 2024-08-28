@@ -7,8 +7,6 @@ class MessagesController < ApplicationController
 
     if @message.save
       ActionCable.server.broadcast "message_channel", {message: render_message(@message)}
-    else
-      render status: :unprocessable_entity, json: { errors: @message.errors.full_messages }
     end
   end
 
