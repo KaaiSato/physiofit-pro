@@ -49,14 +49,16 @@ https://physiofit-pro.onrender.com
 # データベース設計
 [![Image from Gyazo](https://i.gyazo.com/b0efcba1f93bc1b488c555685bad5dc4.png)](https://gyazo.com/b0efcba1f93bc1b488c555685bad5dc4)
 
-#　開発環境
+# 開発環境
 - 言語: Ruby, HTML, CSS, JavaScript
 - フレームワーク: Ruby on Rails
 - データベース: PostgreSQL
 - デプロイ: Render
 - バージョン管理: Git, GitHub
 - その他:
+
    開発環境: ローカル (MacOS)
+   
    テスト: RSpec
 
 # 工夫した点
