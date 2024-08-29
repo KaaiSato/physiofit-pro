@@ -120,6 +120,32 @@ RSpec.describe Trainer, type: :model do
         @trainer.valid?
         expect(@trainer.errors.full_messages).to include("Profile can't be blank")
       end
+
+     context '名前のフォーマットが正しくない場合' do
+      it 'last_nameが全角文字(漢字、ひらがな、カタカナ)以外の場合、登録できない' do
+        @trainer.last_name = 'Yamada123'
+        @trainer.valid?
+        expect(@trainer.errors.full_messages).to include('Last name is invalid')
+      end
+  
+       it 'first_nameが全角文字(漢字、ひらがな、カタカナ)以外の場合、登録できない' do
+        @trainer.first_name = 'Taro123'
+        @trainer.valid?
+        expect(@trainer.errors.full_messages).to include('First name is invalid')
+       end
+  
+       it 'last_name_readingが全角ひらがな以外の場合、登録できない' do
+        @trainer.last_name_reading = 'ヤマダ'
+        @trainer.valid?
+        expect(@trainer.errors.full_messages).to include('Last name reading is invalid')
+       end
+  
+       it 'first_name_readingが全角ひらがな以外の場合、登録できない' do
+        @trainer.first_name_reading = 'タロウ'
+        @trainer.valid?
+        expect(@trainer.errors.full_messages).to include('First name reading is invalid')
+       end
+      end
     end
   end
 end
