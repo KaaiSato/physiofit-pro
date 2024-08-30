@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :trainers 
 
   resources :users
+
+  resources :reservations
   
   root 'pages#home'
 
