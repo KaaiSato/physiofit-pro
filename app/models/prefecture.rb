@@ -58,4 +58,4 @@ class Prefecture < ActiveHash::Base
   has_many :users
   has_many :addresses
   
-  end
+end
