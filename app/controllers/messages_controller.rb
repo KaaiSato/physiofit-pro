@@ -6,7 +6,13 @@ class MessagesController < ApplicationController
     @message = @chat.messages.new(message_params.merge(sender: current_user_or_trainer))
 
     if @message.save
-      ActionCable.server.broadcast "message_channel", {message: render_message(@message)}
+      sender_profile_image = @message.sender.is_a?(Trainer) ? @message.chat.trainer.profile_image : @message.chat.user.profile_image
+      ActionCable.server.broadcast "message_channel", {
+      message: render_message(@message),
+      sender_type: @message.sender_type,
+      content: @message.content,
+      sender_profile_image: sender_profile_image
+      }
     end
   end
 
@@ -18,14 +24,10 @@ class MessagesController < ApplicationController
    else
      authenticate_user!
    end
- end
+  end
 
   def message_params
     params.require(:message).permit(:content)
-  end
-
-  def render_message(message)
-    MessagesController.render(partial: 'messages/message', locals: { message: message })
   end
 
   def current_user_or_trainer

@@ -3,5 +3,5 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 import "channels"
-import "controllers/message_channel" 
-import "controllers/consumer" 
+import "channels/message_channel"
+import "channels/consumer"
