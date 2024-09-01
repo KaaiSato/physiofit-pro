@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_30_011942) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+
   create_table "addresses", charset: "utf8mb4", force: :cascade do |t|
     t.integer "prefecture_id", null: false
     t.string "city", null: false
@@ -130,4 +131,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_30_011942) do
   add_foreign_key "messages", "chats"
   add_foreign_key "reservations", "trainers"
   add_foreign_key "reservations", "users"
+  add_foreign_key "chats", "trainers"
+  add_foreign_key "chats", "users"
+  add_foreign_key "messages", "chats"
 end

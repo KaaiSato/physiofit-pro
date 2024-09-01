@@ -1,0 +1,20 @@
+<h1>Chats</h1>
+
+<% @chats.each do |chat| %>
+  <div class="chat-summary">
+    <%= debug chat %> <!-- デバッグ用の出力 -->
+    <% if trainer_signed_in? %>
+      <% if chat.user %>
+        <%= link_to chat.user.nickname, chat_path(chat.id) %>
+      <% else %>
+        ユーザー情報が存在しません
+      <% end %>
+    <% else %>
+      <% if chat.trainer %>
+        <%= link_to chat.trainer.nickname, chat_path(chat.id) %>
+      <% else %>
+        トレーナー情報が存在しません
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

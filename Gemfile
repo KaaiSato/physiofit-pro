@@ -81,6 +81,7 @@ gem 'devise'
 gem 'active_hash'
 gem 'simple_calendar', '~> 2.0'
 
+
 group :production do
   gem 'pg'
 end

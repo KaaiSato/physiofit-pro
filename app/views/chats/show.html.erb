@@ -1,0 +1,12 @@
+<div class="chat-container" id="chat-container" data-chat-id="<%= @chat.id %>">
+  <div class="messages-list" id="messages-list">
+    <%= render @messages %>
+  </div>
+
+  <div class="message-form">
+    <%= form_with(model: [@chat, @message], remote: true, html: { class: 'new_message' } ,id:"message-form" ) do |f| %>
+      <%= f.text_area :content, placeholder: 'メッセージを入力...', class: 'message-input' %>
+      <%= f.submit '送信', class: 'send-button' %>
+    <% end %>
+  </div>
+</div>

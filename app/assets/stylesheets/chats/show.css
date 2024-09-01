@@ -1,0 +1,101 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px; 
+  width: 100%;       
+  margin: 20px, auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: relative;
+}
+
+.messages-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 80px; 
+}
+
+.message-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.trainer-message {
+  justify-content: flex-start;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.message-content {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image {
+  margin-right: 0px; 
+  margin-left: 35px; 
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.bubble {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #f1f0f0;
+  word-wrap: break-word;
+}
+
+.trainer-message .bubble {
+  background-color: #d2e4ff;
+  margin-left: 0px;
+}
+
+.user-message .bubble {
+  background-color: #daf8cb;
+}
+
+.message-form {
+  display: flex;
+  background-color: #f8f8f8; /* 固定した要素の背景色 */
+  border-top: 1px solid #ddd;
+  padding: 10px 20px;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); /* 上部の影 */
+  position: fixed; /* 変更 */
+  bottom: 60px; /* Footerの上に配置 */
+  width: calc(100% - 550px); /* 左右のpaddingを含めた幅を設定 */
+  left: 256px;
+  right: 20px;
+  z-index: 1000; /* フッターより上に表示 */
+}
+
+.message-input {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 10px;
+  margin-right: 10px;
+  width: 280px;
+}
+
+.send-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #0056b3;
+}
