@@ -44,4 +44,24 @@
   padding: 16px 8px;
   }
   
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* ボタン間のスペース */
+    margin-top: 20px;
+  }
+  
+  .action-button {
+    background-color: blue; /* ボタンの背景色 */
+    color: white; /* ボタンの文字の色 */
+    padding: 10px 20px; /* ボタンの内側の余白 */
+    border: none; /* ボーダーを無くす */
+    border-radius: 5px; /* ボタンの角を丸くする */
+    cursor: pointer; /* マウスカーソルをポインタに変更 */
+    font-size: 16px; /* ボタンの文字のサイズ */
+  }
+  
+  .action-button:hover {
+    background-color: darkblue; /* マウスオーバー時のボタンの背景色 */
+  }
   
