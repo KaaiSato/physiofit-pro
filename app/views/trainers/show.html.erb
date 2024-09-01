@@ -42,7 +42,7 @@
 
 <div class="button-wrapper">
 <% if user_signed_in? %>
-  <%= link_to '予約する', "#", class: 'action-button' %>
+  <%= link_to '予約する', new_reservation_path(trainer_id: @trainer.id), class: 'action-button' %>
   <%= link_to 'ダイレクトメッセージを送る', chats_path(trainer_id: @trainer.id),data: { turbo_method: :post }, class: 'action-button' %>
 <% end %>
 </div>
