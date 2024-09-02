@@ -52,8 +52,9 @@ https://physiofit-pro.onrender.com
 | エリア検索         | 実装予定      | 実装予定            |
 
 # 実装予定機能
-現在はダイレクトメッセージ機能を実装中。
-今後、予約機能（gem simple_calenderを利用）,口コミ機能、Google Maps Places APIを利用したエリア検索機能を実装予定。
+現在はダイレクトメッセージ機能を実装中です。
+
+今後、予約機能（gem simple_calenderを利用）,口コミ機能、Google Maps Places APIを利用したエリア検索機能を実装予定しております。
 
 # データベース設計
 [![Image from Gyazo](https://i.gyazo.com/b0efcba1f93bc1b488c555685bad5dc4.png)](https://gyazo.com/b0efcba1f93bc1b488c555685bad5dc4)
@@ -71,4 +72,8 @@ https://physiofit-pro.onrender.com
    テスト: RSpec
 
 # 工夫した点
-・
+・異なるユーザー情報を管理するため、
+  DeviseいてTrainerモデルとuserモデルの２つのユーザー管理機能を実装しました。
+  
+
+
