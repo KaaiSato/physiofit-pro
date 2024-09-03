@@ -291,6 +291,7 @@ DEPENDENCIES
   pg
   puma (~> 5.0)
   rails (~> 7.0.0)
+  sassc
   rspec-rails (~> 4.0.0)
   sassc (~> 2.4)
   selenium-webdriver
