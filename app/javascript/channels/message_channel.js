@@ -47,6 +47,7 @@ consumer.subscriptions.create("MessageChannel", {
     const messages = document.getElementById("messages-list");
     if (messages) {
       messages.insertAdjacentHTML('beforeend', html);
+      scrollToBottom(); 
     } else {
       console.error("Could not find element with ID 'messages-list'");
     }
@@ -60,3 +61,11 @@ consumer.subscriptions.create("MessageChannel", {
   }
 });
 }
+function scrollToBottom() {
+  const messages = document.getElementById("messages-list");
+  messages.scrollTop = messages.scrollHeight;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  scrollToBottom();
+});

@@ -3,7 +3,7 @@
     <%= render @messages %>
   </div>
 
-  <div class="message-form">
+  <div class="message-form-container" id="message-form-container">
     <%= form_with(model: [@chat, @message], remote: true, html: { class: 'new_message' } ,id:"message-form" ) do |f| %>
       <%= f.text_area :content, placeholder: 'メッセージを入力...', class: 'message-input' %>
       <%= f.submit '送信', class: 'send-button' %>
