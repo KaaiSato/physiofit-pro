@@ -12,6 +12,7 @@ consumer.subscriptions.create("MessageChannel", {
   },
 
   received(data) {
+    console.log(data);
     let html;
     if (data.sender_type === "Trainer") {
    html = `
@@ -41,7 +42,7 @@ consumer.subscriptions.create("MessageChannel", {
    `;
     }
     
-   const messages = document.getElementById("messages_list")
+   const messages = document.getElementById("messages-list")
    messages.insertAdjacentHTML('beforeend', html)
    const messageForm = document.getElementById("message-form");
    if (messageForm) {
