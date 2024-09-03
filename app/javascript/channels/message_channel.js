@@ -14,41 +14,48 @@ consumer.subscriptions.create("MessageChannel", {
   received(data) {
     console.log(data);
     let html;
+    const profileImageUrl = data.sender_profile_image_url
+
     if (data.sender_type === "Trainer") {
-   html = `
-    <div class="message-row trainer-message">
-     <div class="message-content">
-      <div class="profile-image">
-       <img src="${data.sender_profile_image}" alt="Trainer" class="profile-img">
-      </div>
-      <div class="bubble">
-        <p>${data.content}</p>
-      </div>
-     </div>
-    </div>
-    `;
+      html = `
+        <div class="message-row trainer-message">
+         <div class="message-content">
+          <div class="profile-image">
+           <img src="${profileImageUrl}" alt="Trainer" class="profile-img">
+          </div>
+          <div class="bubble">
+            <p>${data.content}</p>
+          </div>
+         </div>
+        </div>
+      `;
     } else {
-   html = `
-    <div class="message-row user-message">
-     <div class="message-content">
-      <div class="bubble">
-       <p>${data.content}</p>
-      </div>
-      <div class="profile-image">
-        <img src="${data.sender_profile_image}" alt="User" class="profile-img">
-      </div>
-     </div>
-   </div>
-   `;
+      html = `
+        <div class="message-row user-message">
+         <div class="message-content">
+          <div class="bubble">
+           <p>${data.content}</p>
+          </div>
+          <div class="profile-image">
+            <img src="${profileImageUrl}" alt="User" class="profile-img">
+          </div>
+         </div>
+       </div>
+      `;
     }
-    
-   const messages = document.getElementById("messages-list")
-   messages.insertAdjacentHTML('beforeend', html)
-   const messageForm = document.getElementById("message-form");
-   if (messageForm) {
-    messageForm.reset(); 
+
+    const messages = document.getElementById("messages-list");
+    if (messages) {
+      messages.insertAdjacentHTML('beforeend', html);
     } else {
-   console.warn("Message form not found");
+      console.error("Could not find element with ID 'messages-list'");
+    }
+
+    const messageForm = document.getElementById("message-form");
+    if (messageForm) {
+      messageForm.reset();
+    } else {
+      console.warn("Message form not found");
     }
   }
 });

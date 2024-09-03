@@ -6,12 +6,14 @@ class MessagesController < ApplicationController
     @message = @chat.messages.new(message_params.merge(sender: current_user_or_trainer))
 
     if @message.save
-      sender_profile_image = @message.sender.is_a?(Trainer) ? @message.chat.trainer.profile_image : @message.chat.user.profile_image
+      sender_profile_image = @message.sender.is_a?(Trainer) ? @chat.trainer.profile_image : @chat.user.profile_image
+      sender_profile_image_url = url_for(sender_profile_image) if sender_profile_image.attached?
+
       ActionCable.server.broadcast "message_channel", {
-      message: render_message(@message),
-      sender_type: @message.sender_type,
-      content: @message.content,
-      sender_profile_image: sender_profile_image
+        message: render_message(@message),
+        sender_type: @message.sender_type,
+        content: @message.content,
+        sender_profile_image_url: sender_profile_image_url
       }
     end
   end
