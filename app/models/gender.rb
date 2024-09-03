@@ -13,4 +13,4 @@ class Gender < ActiveHash::Base
   has_many :trainers
   has_many :users
   
-  end
+end

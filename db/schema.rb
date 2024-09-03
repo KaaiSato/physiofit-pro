@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_22_214118) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_30_011942) do
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_22_214118) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+
+  create_table "addresses", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "addresses", null: false
+    t.string "phone_number", null: false
+    t.bigint "reservation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reservation_id"], name: "index_addresses_on_reservation_id"
+  end
+
   create_table "chats", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "trainer_id", null: false
     t.bigint "user_id", null: false
@@ -56,6 +68,22 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_22_214118) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chat_id"], name: "index_messages_on_chat_id"
+  end
+
+  create_table "reservations", charset: "utf8mb4", force: :cascade do |t|
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_reading", null: false
+    t.string "first_name_reading", null: false
+    t.date "date", null: false
+    t.integer "time_id", null: false
+    t.text "request", null: false
+    t.bigint "trainer_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trainer_id"], name: "index_reservations_on_trainer_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "trainers", charset: "utf8mb4", force: :cascade do |t|
@@ -97,6 +125,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_22_214118) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "addresses", "reservations"
+  add_foreign_key "chats", "trainers"
+  add_foreign_key "chats", "users"
+  add_foreign_key "messages", "chats"
+  add_foreign_key "reservations", "trainers"
+  add_foreign_key "reservations", "users"
   add_foreign_key "chats", "trainers"
   add_foreign_key "chats", "users"
   add_foreign_key "messages", "chats"

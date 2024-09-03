@@ -30,6 +30,10 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content)
   end
 
+  def render_message(message)
+    MessagesController.render(partial: 'messages/message', locals: { message: message })
+  end
+
   def current_user_or_trainer
     current_user || current_trainer
   end

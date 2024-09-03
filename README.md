@@ -1,152 +1,79 @@
-# README
+# アプリケーション名
+PhysioFit Pro
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-# テーブル設計
-
-## trainers テーブル
-
-| Column               | Type   | Options                   |
-| -------------------- | ------ | ------------------------- |
-| nickname             | string | null: false               |
-| email                | string | null: false, unique: true |
-| encrypted_password   | string | null: false               |
-| last_name            | string | null: false               |
-| first_name           | string | null: false               |
-| last_name_reading    | string | null: false               |
-| first_name_reading   | string | null: false               |
-| age                  | integer| null: false               |
-| gender_id               | integer| null: false               |
-| prefecture_id        | integer| null: false               |
-| city                 | string | null: false               |
-| registration_number  | integer| null: false               |
-| career               | text   | null: false               |
-| profile              | text   | null: false               |
-| latitude             | float  |                           |
-| longitude            | float  |                           |
-| service_radius_km    | integer|                           |
-
-### Association
-
-- has_many :reservations
-- has_many :reviews
-- has_many :chats
-- has_many :messages, through: :chats
-
-## users テーブル
-
-| Column               | Type   | Options                   |
-| -------------------- | ------ | ------------------------- |
-| nickname             | string | null: false               |
-| email                | string | null: false, unique: true |
-| encrypted_password   | string | null: false               |
-| age                  | integer| null: false               |
-| gender_id               | integer| null: false               |
-| prefecture_id        | integer| null: false               |
-| city                 | string | null: false               |
-| profile              | text   | null: false               |
-
-### Association
-
-- has_many :reservations
-- has_many :reviews
-- has_many :chats
-- has_many :messages, through: :chats
-
-## chats テーブル
-
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| trainer   | references | null: false, foreign_key: true |
-| user      | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :trainer
-- belongs_to :user
-- has_many :messages
-
-## messages テーブル
-
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| content     | text       | null: false                    |
-| sender_type | string     | null: false                    |
-| sender_id   | integer    | null: false                    |
-| chat        | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :chat
+# アプリケーション概要
+２つの利用目的があります。
 
 
-## reservations テーブル
+1.出張パーソナルトレーニングアプリ
 
-| Column               | Type       | Options                        |
-| -------------------- | ---------- | ------------------------------ |
-| last_name            | string     | null: false                    |
-| first_name           | string     | null: false                    |
-| last_name_reading    | string     | null: false                    |
-| first_name_reading   | string     | null: false                    |
-| date                 | date       | null: false                    |
-| time_id              | integer    | null: false                    |
-| request              | text       | null: false                    |
-| trainer              | references | null: false, foreign_key: true |
-| user                 | references | null: false, foreign_key: true |
 
-### Association
+  趣味でスポーツを楽しむ人が理学療法士という専門資格を持ったスポーツトレーナーのパーソナルトレーニングを自宅で受けることができます。ジムに行くのが大変、隙間時間を活用したいという多忙な現代人のスポーツライフを充実させることができればと考えています。
 
-- belongs_to :trainer
-- belongs_to :user
-- has_one :address
 
-## addresses テーブル
+2.スポーツトレーナーの独立及び副業支援アプリ
 
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| prefecture_id   | integer    | null: false                    |
-| city            | string     | null: false                    |
-| addresses       | string     | null: false                    |
-| phone_number    | string     | null: false                    |
-| reservation     | references | null: false, foreign_key: true |
 
-### Association
+   近年、理学療法士の資格を活かしてスポーツトレーナーに転向する人が増えている背景があります。ゼロからスポーツジムを立ち上げ、顧客集めをするのは時間とコストがかかりますが、このアプリを利用すれば、ユーザーの自宅でトレーニングをサポートすることから始めことができます。スポーツトレーナーとしての副業や独立への後押しができるのではないかと考えています。
 
-- belongs_to :reservation
+# URL
+https://physiofit-pro.onrender.com
 
-## reviews テーブル
+# テスト用アカウント
+- Basic認証ID ： admin
+- Basic認証ID ： 2222
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| rating   | integer    | null: false                    |
-| comment  | text       | null: false                    |
-| trainer  | references | null: false, foreign_key: true |
-| user     | references | null: false, foreign_key: true |
 
-### Association
+一般ユーザーアカウント
+- メールアドレス：
+- パスワード:
 
-- belongs_to :trainer
-- belongs_to :user
+
+スポーツトレーナーアカウント
+- メールアドレス：
+- パスワード:
+
+# アプリケーションを作成した背景
+スポーツトレーナーに転向したいという理学療法士の友人から、「独立したいが資金面でハードルが高く一歩が踏み出せない」という課題を聞き取りました。そんな中、私の母がスポーツで肩を故障したため、友人に相談したところ、自宅で母の体質・骨格に合ったトレーニング方法を教えてもらうことができ、以前同様に母も元気に活動をすることができるようになりました。このように、簡単に自分に合ったトレーニングを知りたいと考える”ユーザー”とスポーツトレーナーとして活躍したい”トレーナー”をマッチングさせるアプリケーションの開発をすることにしました。
+
+# 利用方法　（作成中）
+
+
+# 機能一覧　（作成中）
+
+| 機能              | 一般ユーザー | スポーツトレーナー |
+| ----------------- | ------------ | ------------------ |
+| ユーザー登録・編集 | ○            | ○                  |
+| 自己紹介           | ○            | ○                  |
+| ダイレクトメッセージ | ○            | ○                  |
+| トレーニング予約   | 実装予定      | ×                  |
+| トレーニング予約承認 | ×            | 実装予定            |
+| 口コミ             | 実装予定      | ×                  |
+| エリア検索         | 実装予定      | 実装予定            |
+
+# 実装予定機能
+現在はダイレクトメッセージ機能を実装中です。
+
+今後、予約機能（gem simple_calenderを利用）,口コミ機能、Google Maps Places APIを利用したエリア検索機能を実装予定しております。
+
+# データベース設計
+[![Image from Gyazo](https://i.gyazo.com/b0efcba1f93bc1b488c555685bad5dc4.png)](https://gyazo.com/b0efcba1f93bc1b488c555685bad5dc4)
+
+# 開発環境
+- 言語: Ruby, HTML, CSS, JavaScript
+- フレームワーク: Ruby on Rails
+- データベース: PostgreSQL
+- デプロイ: Render
+- バージョン管理: Git, GitHub
+- その他:
+
+   開発環境: ローカル (MacOS)
+
+   テスト: RSpec
+
+# 工夫した点
+・異なるユーザー情報を管理するため、
+  DeviseいてTrainerモデルとuserモデルの２つのユーザー管理機能を実装しました。
+  
 
 
