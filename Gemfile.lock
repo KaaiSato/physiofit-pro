@@ -106,7 +106,6 @@ GEM
     faker (3.4.2)
       i18n (>= 1.8.11, < 2)
     ffi (1.17.0-x86_64-darwin)
-    ffi (1.17.0-x86_64-linux-gnu)
     gimei (1.5.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -154,8 +153,6 @@ GEM
       net-protocol
     nio4r (2.7.3)
     nokogiri (1.16.7-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.7)
@@ -276,7 +273,6 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
-  x86_64-linux
 
 DEPENDENCIES
   active_hash
@@ -290,21 +286,26 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  logger (= 1.6.1)
   mini_magick
+  minitest (= 5.25.1)
   mysql2 (~> 0.5)
+  net-imap (= 0.4.15)
   pg
   puma (~> 5.0)
   rails (~> 7.0.0)
   rspec-rails (~> 4.0.0)
-  sassc (~> 2.4)
+  sassc (= 2.4.0)
   selenium-webdriver
   simple_calendar (~> 2.0)
   sprockets-rails
-  stimulus-rails
+  stimulus-rails (= 1.3.4)
+  thor (= 1.3.2)
   turbo-rails
   tzinfo-data
   web-console
   webdrivers
+  zeitwerk (= 2.6.18)
 
 RUBY VERSION
    ruby 3.2.0p0

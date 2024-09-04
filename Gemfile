@@ -22,7 +22,7 @@ gem "importmap-rails"
 gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
+gem "stimulus-rails", "1.3.4"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -80,8 +80,12 @@ gem 'image_processing', '~> 1.2'
 gem 'devise'
 gem 'active_hash'
 gem 'simple_calendar', '~> 2.0'
-gem 'sassc', '~> 2.4'
-
+gem 'sassc', '2.4.0'
+gem 'net-imap', '0.4.15'
+gem 'minitest', '5.25.1'
+gem 'thor', '1.3.2'
+gem 'zeitwerk', '2.6.18'
+gem 'logger', '1.6.1'
 
 group :production do
   gem 'pg'
