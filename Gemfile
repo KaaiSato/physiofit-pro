@@ -86,6 +86,7 @@ gem 'minitest', '5.25.1'
 gem 'thor', '1.3.2'
 gem 'zeitwerk', '2.6.18'
 gem 'logger', '1.6.1'
+gem 'pry-rails'
 
 group :production do
   gem 'pg'

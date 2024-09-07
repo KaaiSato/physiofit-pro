@@ -1,1 +1,68 @@
-<h2>予約</h2>
+<%= form_with model: @reservation_address, url: reservations_path do |f| %>
+
+<h2>予約フォーム</h2>
+
+<%= render "shared/error_messages", model: @reservation_address %>
+
+  <div class="field">
+    <%= f.label :last_name, "Last Name" %><br />
+    <%= f.text_field :last_name, placeholder:"ex）佐藤" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name, "First Name" %><br />
+    <%= f.text_field :first_name, placeholder:"ex）太郎" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name_reading, "Last Name (Reading)" %><br />
+    <%= f.text_field :last_name_reading, placeholder:"ex）さとう" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name_reading, "First Name (Reading)" %><br />
+    <%= f.text_field :first_name_reading, placeholder:"ex）たろう" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date, "Date" %><br />
+    <%= f.date_field :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time_id, "Reservation_Time" %><br />
+    <%= f.collection_select(:time_id, ReservationTime.all, :id, :name, {}, {class:"select-box", id:"time"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prefecture_id, "Prefecture" %><br />
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city, "City" %><br />
+    <%= f.text_field :city, placeholder:"ex）港区" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :addresses, "Addresses" %><br />
+    <%= f.text_field :addresses, placeholder:"詳しい住所を入力してください" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number, "Phone Number" %><br />
+    <%= f.text_field :phone_number, placeholder:"ex）090-1234-5678" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :request, "Request" %><br />
+    <%= f.text_area :request, placeholder:"特記事項やリクエストを入力してください" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "予約する" %>
+  </div>
+
+<% end %>
+
+

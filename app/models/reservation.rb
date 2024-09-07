@@ -4,7 +4,7 @@ class Reservation < ApplicationRecord
   belongs_to :trainer
   belongs_to :user
   has_one :address
-  belongs_to :time
+  belongs_to :reservation_time
   
  with_options presence: true do
    validates :last_name ,format: { with: /\A[ぁ-んァ-ヶ一-龠々ー]+\z/ }
