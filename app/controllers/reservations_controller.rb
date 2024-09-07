@@ -5,10 +5,17 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @reservation = Reservation.new
+    @reservation_address = ReservationAddress.new
   end
 
   def create
+    @reservation_address = ReservationAddress.new(reservation_params)
+    binding.pry
+    if @reservation_address.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
@@ -20,6 +27,9 @@ class ReservationsController < ApplicationController
       authenticate_user!
     end
   end
- 
 
+  def reservation_params
+    params.require(:reservation_address).permit(:last_name, :first_name, :last_name_reading, :first_name_reading, :date, :time_id, :request, :prefecture_id, :city, :addresses, :phone_number).merge(trainer_id: params[:trainer_id], user_id: current_user.id)
+  end
+  
 end
