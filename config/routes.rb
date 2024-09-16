@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :new, :create]
   end
 
-  resources :reservations
+  resources :reservations, only: [:index, :new, :create]
   
   root 'pages#home'
 

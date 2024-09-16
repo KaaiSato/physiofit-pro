@@ -1,8 +1,8 @@
 class TrainersController < ApplicationController
   def index
-  
+    @reservations = Reservation.where(trainer_id: current_trainer.id)
   end
-
+  
   def show
     @trainer = Trainer.find(params[:id])  
   end
