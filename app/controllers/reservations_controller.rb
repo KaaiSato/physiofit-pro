@@ -1,9 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user_or_trainer!
 
-  def index
-  end
-
   def new
     @reservation_address = ReservationAddress.new(trainer_id: params[:trainer_id])
   end

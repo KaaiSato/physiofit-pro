@@ -1,2 +1,29 @@
-<h1>Trainer トップページ<h1>
-  
+<h1>予約リクエスト一覧</h1>
+
+<% if @reservations.present? %>
+  <table class="reservation-table">
+    <thead>
+      <tr>
+        <th>日付</th>
+        <th>時間</th>
+        <th>姓</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <tr>
+          <td><%= reservation.date %></td>
+          <td><%= ReservationTime.find(reservation.time_id).name %></td>
+          <td><%= reservation.last_name %></td>
+          <td><%= reservation.first_name %></td>
+          <td>
+            <%= link_to "承認する", "#", method: :post, class: "btn-approve" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="no-reservations">予約リクエストはありません</div>
+<% end %>

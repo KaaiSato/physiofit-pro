@@ -10,7 +10,6 @@ class ReservationAddress
     validates :date
     validates :time_id
     validates :request
-
     validates :prefecture_id
     validates :city
     validates :addresses
